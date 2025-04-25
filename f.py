@@ -35,26 +35,6 @@ class MyProgr(QMainWindow):
         self.vac.clicked.connect(self.va)
         self.vac.move(50, 180)
 
-        self.circle_position = None
-
-    def paintEvent(self, event):
-        if self.circle_position:
-            painter = QPainter(self)
-            color = QColor("yellow")
-            color.setAlpha(100)
-            painter.setBrush(color)
-            painter.setPen(Qt.PenStyle.NoPen)
-            painter.drawEllipse(self.circle_position, 10, 10)
-
-    def mousePressEvent(self, event):
-        if event.button() == Qt.MouseButton.LeftButton:
-            self.circle_position = event.position()
-            self.update()
-
-    def mouseReleaseEvent(self, event):
-        self.circle_position = None
-        self.update()
-
     def conect(self):
         self.ex = Calculator()
         self.ex.show()
